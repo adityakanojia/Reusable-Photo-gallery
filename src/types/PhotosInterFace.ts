@@ -5,4 +5,5 @@ export interface PhotosInterface {
   height: number;
   url: string;
   download_url: string;
+  isFavourite: boolean;
 }
