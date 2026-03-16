@@ -1,73 +1,174 @@
-# React + TypeScript + Vite
+# 📸 Reusable Photo Gallery
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern **React + Vite + Tailwind CSS photo gallery application** that fetches images from the **Picsum API** and displays them in a responsive grid.  
+The project demonstrates **React performance optimization techniques** like `useCallback`, `useMemo`, custom hooks, and reducer-based state management.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+- 🔍 **Search Photos**  
+  Filter photos by author name in real-time.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- ⭐ **Favourite System**  
+  Mark and unmark photos as favourites.
 
-## Expanding the ESLint configuration
+- 💾 **Persistent Storage**  
+  Favourite photos are saved in **localStorage**.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- ⚡ **Performance Optimization**
+  - `useCallback` for stable functions
+  - `useMemo` for optimized filtering
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- 🪝 **Custom Hook**
+  - `useFetchPhotos` to handle API fetching logic.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- 🎯 **Reusable Components**
+  - Modular and reusable UI components.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- 📱 **Responsive Layout**
+  - Built with **Tailwind CSS grid system**.
+
+---
+
+# 🧠 Concepts Demonstrated
+
+This project focuses on **advanced React patterns** often expected from **mid-level frontend developers**.
+
+### React Hooks
+
+- `useState`
+- `useEffect`
+- `useCallback`
+- `useMemo`
+- `useReducer`
+
+### Architecture Patterns
+
+- Custom Hooks
+- Component Composition
+- Separation of Concerns
+- State Persistence with LocalStorage
+
+---
+
+# 🛠 Tech Stack
+
+- **React**
+- **TypeScript**
+- **Vite**
+- **Tailwind CSS**
+- **Picsum Photos API**
+
+API used:
+
+```
+https://picsum.photos/v2/list
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+# 📂 Project Structure
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+src
+ ┣ components
+ ┃ ┣ Card
+ ┃ ┣ Gallery
+ ┃ ┗ SearchBar
+ ┃
+ ┣ hooks
+ ┃ ┗ useFetchPhotos.ts
+ ┃
+ ┣ reducer
+ ┃ ┗ toggleReducer.ts
+ ┃
+ ┣ types
+ ┃ ┗ PhotosInterface.ts
+ ┃
+ ┣ App.tsx
+ ┗ main.tsx
+```
+
+---
+
+# ⚙️ Installation & Setup
+
+Clone the repository
+
+```bash
+git clone https://github.com/adityakanojia/Reusable-Photo-gallery.git
+```
+
+Navigate into the project
+
+```bash
+cd Reusable-Photo-gallery
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run the development server
+
+```bash
+npm run dev
+```
+
+Open in browser
+
+```
+http://localhost:5173
+```
+
+---
+
+# 🎯 Key Implementation Details
+
+### Custom Hook
+
+`useFetchPhotos` handles:
+
+- API requests
+- Loading state
+- Error handling
+
+### Reducer
+
+`toggleReducer` manages:
+
+- Adding favourite photos
+- Removing favourites
+- Syncing with localStorage
+
+### Performance Optimizations
+
+`useMemo`
+
+- Prevents expensive filtering operations from running unnecessarily.
+
+`useCallback`
+
+- Prevents unnecessary re-renders of child components.
+
+---
+
+# 📸 Future Improvements
+
+- Infinite scrolling
+- Image modal preview
+- Dark mode
+- Pagination
+- Skeleton loading UI
+
+---
+
+# 👨‍💻 Author
+
+**Aditya Kanojia**
+
+GitHub:  
+https://github.com/adityakanojia
